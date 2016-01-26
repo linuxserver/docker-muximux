@@ -1,27 +1,21 @@
-FROM linuxserver/baseimage
+FROM linuxserver/baseimage.apache
 
 MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
 
-ENV APTLIST="git-core nodejs"
+ENV APTLIST="git-core"
 
 # install packages
-RUN curl -sL https://deb.nodesource.com/setup_5.x | bash - && \
+RUN apt-get update && \
 apt-get install $APTLIST -qy && \
-npm install -g npm@latest && \
-
-# install package
-git clone https://github.com/onedr0p/manage-this-node /app/muximux && \
-cd /app/muximux && \
-npm install && \
 
 # cleanup
 apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 #Adding Custom files
+ADD defaults/ /defaults/
 ADD init/ /etc/my_init.d/
-# ADD services/ /etc/service/
 RUN chmod -v +x /etc/service/*/run && chmod -v +x /etc/my_init.d/*.sh
 
 # ports and volumes
-EXPOSE 3000
+EXPOSE 80 443
 VOLUME /config
