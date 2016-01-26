@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[[ ! -d /config/www/muximux/.git ]] && (git clone https://github.com/mescon/Muximux/config/www/muximux /config/www/muximux && \
+[[ ! -d /config/www/muximux/.git ]] && (git clone https://github.com/mescon/Muximux /config/www/muximux && \
 chown -R abc:abc /config/www)
 
 
