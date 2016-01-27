@@ -1,4 +1,4 @@
-FROM linuxserver/baseimage.apache
+FROM linuxserver/baseimage
 
 MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
 
@@ -8,7 +8,7 @@ ENV APTLIST="nodejs git-core"
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
 apt-get install $APTLIST -qy && \
 npm install -g npm@latest && \
-git clone https://github.com/onedr0p/manage-this-node /app/muximux && 
+git clone https://github.com/onedr0p/manage-this-node /app/muximux && \
 cd /app/muximux &&
 npm install && \
 
