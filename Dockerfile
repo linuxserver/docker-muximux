@@ -1,4 +1,4 @@
-FROM linuxserver/baseimage.apache
+FROM linuxserver/baseimage.nginx
 
 MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
 
