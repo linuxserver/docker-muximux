@@ -1,47 +1,56 @@
-![https://linuxserver.io](http://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)
+![https://linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)
 
-The [LinuxServer.io](https://www.linuxserver.io/) team brings you another quality container release featuring auto-update on startup, easy user mapping and community support. Be sure to checkout our [forums](https://forum.linuxserver.io/index.php) or for real-time support our [IRC](https://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io`.
+The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring auto-update on startup, easy user mapping and community support. Find us for support at:
+* [forum.linuxserver.io](https://forum.linuxserver.io)
+* [IRC](https://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io`
+* [Podcast](https://www.linuxserver.io/index.php/category/podcast/) covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
-# linuxserver/<container-name>
+# linuxserver/muximux
 
-<Provide a short, concise description of the application. No more than two SHORT paragraphs. Link to sources where possible and include an image illustrating your point if necessary. Point users to the original applications website, as that's the best place to get support - not here.>
+This is a lightweight portal to view & manage your HTPC apps without having to run anything more than a PHP enabled webserver. With Muximux you don't need to keep multiple tabs open, or bookmark the URL to all of your apps. [Muximux](https://github.com/mescon/Muximux).
 
 ## Usage
 
 ```
-docker create --name=<container-name> -v /etc/localtime:/etc/localtime:ro -v \
-<path to data>:/config -e PGID=<gid> -e PUID=<uid>  \
--p 1234:1234 linuxserver/<container-name>
+docker create \
+  --name=muximux \
+  -v <path to data>:/config \
+  -e PGID=<gid> -e PUID=<uid>  \
+  -e TZ=<timezone> -p 80:80 \
+  linuxserver/muximux
 ```
 
 **Parameters**
 
-* `-p 4242` - the port(s)
-* `-v /etc/localtime` for timesync - *optional*
-* `-v /config` -
+* `-p 80` - the port(s)
+* `-v /config` - Where muximux should store its files
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
-
-It is based on phusion-baseimage with ssh removed, for shell access whilst the container is running do `docker exec -it <container-name> /bin/bash`.
+* `-e TZ` for timezone setting, eg Europe/London
 
 ### User / Group Identifiers
 
-**TL;DR** - The `PGID` and `PUID` values set the user / group you'd like your container to 'run as' to the host OS. This can be a user you've created or even root (not recommended).
+Sometimes when using data volumes (`-v` flags) permissions issues can arise between the host OS and the container. We avoid this issue by allowing you to specify the user `PUID` and group `PGID`. Ensure the data volume directory on the host is owned by the same user you specify and it will "just work" ™.
 
-Part of what makes our containers work so well is by allowing you to specify your own `PUID` and `PGID`. This avoids nasty permissions errors with relation to data volumes (`-v` flags). When an application is installed on the host OS it is normally added to the common group called users, Docker apps due to the nature of the technology can't be added to this group. So we added this feature to let you easily choose when running your containers.
+In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as below:
 
-## Setting up the application 
+```
+  $ id <dockeruser>
+    uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
+```
 
-<Insert a basic user guide here to get a n00b up and running with the software inside the container.> DELETE ME
+## Setting up the application
+
+Find the web interface at `<your-ip>:80` , set apps you wish to use with muximux via the webui.
+More info:- [Muximux](https://github.com/mescon/Muximux)
 
 
 ## Updates
 
-* Upgrade to the latest version simply `docker restart <container-name>`.
-* To monitor the logs of the container in realtime `docker logs -f <container-name>`.
-
-
+* Shell access whilst the container is running: `docker exec -it muximux /bin/bash`
+* Upgrade to the latest version: `docker restart muximux`
+* To monitor the logs of the container in realtime: `docker logs -f muximux`
 
 ## Versions
 
-+ **dd.MM.yyyy:** This is the standard Version type now. 
++ **dd.MM.yyyy:** Initial release date.
