@@ -1,21 +1,9 @@
-FROM linuxserver/baseimage.nginx
-
-MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
-
-ENV APTLIST="git-core"
-
-# install packages
-RUN apt-get update -q && \
-apt-get install $APTLIST -qy && \
-
-# cleanup
-apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+FROM lsiobase/alpine.nginx
+MAINTAINER sparklyballs
 
 # Adding Custom files
-ADD defaults/ /defaults/
-ADD init/ /etc/my_init.d/
-RUN chmod -v +x /etc/service/*/run && chmod -v +x /etc/my_init.d/*.sh
+COPY root/ /
 
-# ports and volumes
+# ports and volumes
 EXPOSE 80
 VOLUME /config
