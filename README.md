@@ -1,13 +1,23 @@
-![https://linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)
+[linuxserverurl]: https://linuxserver.io
+[forumurl]: https://forum.linuxserver.io
+[ircurl]: https://www.linuxserver.io/index.php/irc/
+[podcasturl]: https://www.linuxserver.io/index.php/category/podcast/
 
-The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring auto-update on startup, easy user mapping and community support. Find us for support at:
-* [forum.linuxserver.io](https://forum.linuxserver.io)
-* [IRC](https://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io`
-* [Podcast](https://www.linuxserver.io/index.php/category/podcast/) covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
+[![linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)][linuxserverurl]
+
+The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
+* [forum.linuxserver.io][forumurl]
+* [IRC][ircurl] on freenode at `#linuxserver.io`
+* [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/muximux
+[![](https://images.microbadger.com/badges/image/linuxserver/muximux.svg)](http://microbadger.com/images/linuxserver/muximux "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/muximux.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/muximux.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-muximux)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-muximux/)
+[hub]: https://hub.docker.com/r/linuxserver/muximux/
 
 This is a lightweight portal to view & manage your HTPC apps without having to run anything more than a PHP enabled webserver. With Muximux you don't need to keep multiple tabs open, or bookmark the URL to all of your apps. [Muximux](https://github.com/mescon/Muximux).
+
+[![muximux](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/muximux-icon.png)][muximuxurl]
+[muximuxurl]: https://github.com/mescon/Muximux
 
 ## Usage
 
@@ -27,6 +37,8 @@ docker create \
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 * `-e TZ` for timezone setting, eg Europe/London
+
+It is based on phusion baseimage, for shell access whilst the container is running do `docker exec -it muximux /bin/bash`.
 
 ### User / Group Identifiers
 
@@ -53,4 +65,5 @@ More info:- [Muximux](https://github.com/mescon/Muximux)
 
 ## Versions
 
-+ **22.02.2016:** Initial release date.
++ **09.09.16:** Add badges to README.
++ **22.02.16:** Initial release date.

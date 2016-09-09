@@ -4,6 +4,9 @@ MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
 
 ENV APTLIST="git-core"
 
+# copy sources.list
+COPY sources.list /etc/apt/
+
 # install packages
 RUN apt-get update -q && \
 apt-get install $APTLIST -qy && \
