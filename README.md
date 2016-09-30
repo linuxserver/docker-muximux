@@ -38,7 +38,7 @@ docker create \
 * `-e PUID` for UserID - see below for explanation
 * `-e TZ` for timezone setting, eg Europe/London
 
-It is based on phusion baseimage, for shell access whilst the container is running do `docker exec -it muximux /bin/bash`.
+It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it muximux /bin/bash`.
 
 ### User / Group Identifiers
 
@@ -54,16 +54,16 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 ## Setting up the application
 
 Find the web interface at `<your-ip>:80` , set apps you wish to use with muximux via the webui.
-More info:- [Muximux](https://github.com/mescon/Muximux)
+More info:- [Muximux][muximuxurl]
 
 
-## Updates
+## Info
 
 * Shell access whilst the container is running: `docker exec -it muximux /bin/bash`
-* Upgrade to the latest version: `docker restart muximux`
 * To monitor the logs of the container in realtime: `docker logs -f muximux`
 
 ## Versions
 
++ **30.09.16:** Rebase to alpine linux.
 + **09.09.16:** Add badges to README.
 + **22.02.16:** Initial release date.

@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv bash
+
+# fetch site
+[[ ! -d /config/www/muximux/.git ]] && \
+	git clone https://github.com/mescon/Muximux /config/www/muximux
+
+# permissions
+chown -R abc:abc \
+	/config/www
