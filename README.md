@@ -11,7 +11,7 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 * [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/muximux
-[![](https://images.microbadger.com/badges/image/linuxserver/muximux.svg)](http://microbadger.com/images/linuxserver/muximux "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/muximux.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/muximux.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-muximux)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-muximux/)
+[![](https://images.microbadger.com/badges/version/linuxserver/muximux.svg)](https://microbadger.com/images/linuxserver/muximux "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/muximux.svg)](http://microbadger.com/images/linuxserver/muximux "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/muximux.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/muximux.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-muximux)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-muximux/)
 [hub]: https://hub.docker.com/r/linuxserver/muximux/
 
 This is a lightweight portal to view & manage your HTPC apps without having to run anything more than a PHP enabled webserver. With Muximux you don't need to keep multiple tabs open, or bookmark the URL to all of your apps. [Muximux][muximuxurl].
@@ -62,8 +62,17 @@ More info:- [Muximux][muximuxurl]
 * Shell access whilst the container is running: `docker exec -it muximux /bin/bash`
 * To monitor the logs of the container in realtime: `docker logs -f muximux`
 
+* container version number 
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' muximux`
+
+* image version number
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/muximux`
+
 ## Versions
 
++ **14-10-16:** Add version layer information.
 + **30.09.16:** Rebase to alpine linux.
 + **09.09.16:** Add badges to README.
 + **22.02.16:** Initial release date.
