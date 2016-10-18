@@ -78,7 +78,7 @@ More info:- [Muximux][muximuxurl]
 
 ## Versions
 
-+ **14-10-16:** Add version layer information.
++ **14.10.16:** Add version layer information.
 + **30.09.16:** Rebase to alpine linux.
 + **09.09.16:** Add badges to README.
 + **22.02.16:** Initial release date.
