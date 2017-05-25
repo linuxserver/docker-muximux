@@ -1,5 +1,5 @@
-FROM lsiobase/alpine.nginx:3.5
-MAINTAINER Sparklyballs
+FROM lsiobase/alpine.nginx:3.6
+MAINTAINER sparklyballs
 
 # set version label
 ARG BUILD_DATE
