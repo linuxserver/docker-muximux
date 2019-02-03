@@ -1,8 +1,12 @@
 #!/usr/bin/with-contenv bash
 
+# Set version
+MUXIMUX_COMMIT=$(cat /version.txt)
+
 # fetch site
 [[ ! -d /config/www/muximux/.git ]] && \
 	git clone https://github.com/mescon/Muximux /config/www/muximux
+	git --git-dir=/config/www/muximux/.git --work-tree=/config/www/muximux checkout ${MUXIMUX_COMMIT}
 
 # permissions
 chown -R abc:abc \

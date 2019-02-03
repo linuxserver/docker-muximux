@@ -1,0 +1,29 @@
+---
+
+# jenkins variables
+project_name: docker-muximux
+external_type: github_commit
+release_type: stable
+release_tag: latest
+ls_branch: master
+repo_vars:
+  - EXT_GIT_BRANCH = 'master'
+  - EXT_USER = 'mescon'
+  - EXT_REPO = 'Muximux'
+  - BUILD_VERSION_ARG = 'MUXIMUX_COMMIT'
+  - LS_USER = 'linuxserver'
+  - LS_REPO = 'docker-muximux'
+  - CONTAINER_NAME = 'muximux'
+  - DOCKERHUB_IMAGE = 'linuxserver/muximux'
+  - DEV_DOCKERHUB_IMAGE = 'lsiodev/muximux'
+  - PR_DOCKERHUB_IMAGE = 'lspipepr/muximux'
+  - DIST_IMAGE = 'alpine'
+  - MULTIARCH='true'
+  - CI='true'
+  - CI_WEB='true'
+  - CI_PORT='80'
+  - CI_SSL='false'
+  - CI_DELAY='120'
+  - CI_DOCKERENV='TZ=US/Pacific'
+  - CI_AUTH='user:password'
+  - CI_WEBPATH=''
