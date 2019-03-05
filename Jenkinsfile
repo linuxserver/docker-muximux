@@ -22,7 +22,7 @@ pipeline {
     PR_DOCKERHUB_IMAGE = 'lspipepr/muximux'
     DIST_IMAGE = 'alpine'
     MULTIARCH='true'
-    CI='true'
+    CI='false'
     CI_WEB='true'
     CI_PORT='80'
     CI_SSL='false'
