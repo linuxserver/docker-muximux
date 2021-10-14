@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:arm64v8-3.13
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:arm64v8-3.15
 
 # set version label
 ARG BUILD_DATE
@@ -8,20 +8,19 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 LABEL maintainer="sparklyballs"
 
 RUN \
- echo "**** install runtime packages ****" && \
- apk add --no-cache \
-	curl \
-	jq && \
- echo "**** Tag this image with current version ****" && \
- if [ -z ${MUXIMUX_COMMIT+x} ]; then \
+  echo "**** install runtime packages ****" && \
+  apk add --no-cache \
+    curl \
+    jq && \
+  echo "**** Tag this image with current version ****" && \
+  if [ -z ${MUXIMUX_COMMIT+x} ]; then \
         MUXIMUX_COMMIT=$(curl -sX GET https://api.github.com/repos/mescon/Muximux/commits/master \
         | jq -r '. | .sha'); \
- fi && \
- echo ${MUXIMUX_COMMIT} > /version.txt
+  fi && \
+  echo ${MUXIMUX_COMMIT} > /version.txt
 
 # add local files
 COPY root/ /
 
 # ports and volumes
-EXPOSE 80
-VOLUME /config
+EXPOSE 80 443
