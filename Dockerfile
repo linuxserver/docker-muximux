@@ -19,9 +19,9 @@ RUN \
   fi && \
   echo ${MUXIMUX_COMMIT} > /version.txt
 
-# add local files
+# copy local files
 COPY root/ /
 
-# ports and volumes
+# ports and volumes
 EXPOSE 80 443
 VOLUME /config
